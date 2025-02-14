@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chá de Casa Nova - David e Thaís</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h2 {
+            text-align: center;
+        }
+        .checklist {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            padding: 8px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checklist">
+        <h2>Chá de Casa Nova - David e Thaís</h2>
+        <form id="checklistForm">
+            <label><input type="checkbox" value="Abridor de Lata"> Abridor de Lata</label><label><input type="checkbox" value="Formas e Assadeiras"> Formas e Assadeiras</label><label><input type="checkbox" value="Formas Removível"> Formas Removível</label><label><input type="checkbox" value="Afiador de Facas"> Afiador de Facas</label><label><input type="checkbox" value="Panela de Pressão"> Panela de Pressão</label><label><input type="checkbox" value="Descanso de Panelas"> Descanso de Panelas</label><label><input type="checkbox" value="Jogo de Xícaras"> Jogo de Xícaras</label><label><input type="checkbox" value="Jogo de Pratos (Branco)"> Jogo de Pratos (Branco)</label><label><input type="checkbox" value="Porta Condimentos"> Porta Condimentos</label><label><input type="checkbox" value="Espremedor"> Espremedor</label><label><input type="checkbox" value="Leiteira"> Leiteira</label><label><input type="checkbox" value="Panos de Prato"> Panos de Prato</label><label><input type="checkbox" value="Avental"> Avental</label><label><input type="checkbox" value="Ralador"> Ralador</label><label><input type="checkbox" value="Saca Rolhas"> Saca Rolhas</label><label><input type="checkbox" value="Pegador de Macarrão"> Pegador de Macarrão</label><label><input type="checkbox" value="Chaleira"> Chaleira</label><label><input type="checkbox" value="Kit Escorredor de Macarrão e Arroz"> Kit Escorredor de Macarrão e Arroz</label><label><input type="checkbox" value="Escumadeira"> Escumadeira</label><label><input type="checkbox" value="Faca de Pão"> Faca de Pão</label><label><input type="checkbox" value="Kit Frigideira"> Kit Frigideira</label><label><input type="checkbox" value="Tábua para Cortes (Vidro)"> Tábua para Cortes (Vidro)</label><label><input type="checkbox" value="Potes Multiuso"> Potes Multiuso</label><label><input type="checkbox" value="Jarra de Suco"> Jarra de Suco</label><label><input type="checkbox" value="Pano de Chão Tipo Saco"> Pano de Chão Tipo Saco</label><label><input type="checkbox" value="Jogo para Sobremesa"> Jogo para Sobremesa</label><label><input type="checkbox" value="Saleiro"> Saleiro</label><label><input type="checkbox" value="Jogo Americano"> Jogo Americano</label><label><input type="checkbox" value="Liquidificador"> Liquidificador</label><label><input type="checkbox" value="Sanduicheira"> Sanduicheira</label><label><input type="checkbox" value="Jogo de Marinex"> Jogo de Marinex</label><label><input type="checkbox" value="Jogo de Copos de Vidro"> Jogo de Copos de Vidro</label><label><input type="checkbox" value="Jogo de Colheres de Silicone"> Jogo de Colheres de Silicone</label><label><input type="checkbox" value="Jogo de Cama (Cobre Leito)"> Jogo de Cama (Cobre Leito)</label><label><input type="checkbox" value="Jogo de Lençol (Tamanho Queen)"> Jogo de Lençol (Tamanho Queen)</label><label><input type="checkbox" value="Triturador de Alimentos"> Triturador de Alimentos</label><label><input type="checkbox" value="Faqueiro"> Faqueiro</label><label><input type="checkbox" value="Ferro de Passar Roupa"> Ferro de Passar Roupa</label><label><input type="checkbox" value="Edredom"> Edredom</label><label><input type="checkbox" value="Tapete Antiadente para Box"> Tapete Antiadente para Box</label><label><input type="checkbox" value="Toalha para Mãos"> Toalha para Mãos</label><label><input type="checkbox" value="Toalhas de Banho (Tamanho Grande)"> Toalhas de Banho (Tamanho Grande)</label><label><input type="checkbox" value="Capacho"> Capacho</label><label><input type="checkbox" value="Cesto para Roupa"> Cesto para Roupa</label><label><input type="checkbox" value="Escova para Vaso Sanitário"> Escova para Vaso Sanitário</label><label><input type="checkbox" value="Lixeira"> Lixeira</label><label><input type="checkbox" value="Mop Giratória"> Mop Giratória</label><label><input type="checkbox" value="Cesto de Roupa Suja"> Cesto de Roupa Suja</label><label><input type="checkbox" value="Vassoura, Rodo e Pá"> Vassoura, Rodo e Pá</label><label><input type="checkbox" value="Fronhas"> Fronhas</label><label><input type="checkbox" value="Tapetes"> Tapetes</label>
+        </form>
+        <button onclick="confirmarItens()">Confirmar</button>
+    </div>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbw_197VevaH9gfhRGvuE6CTrzIL5KmtRhkrMf2LRfCkJkFYjjUaIfZH8CQceqm0md0/exec";
+
+        async function carregarItensRemovidos() {
+            try {
+                let response = await fetch(scriptURL);
+                let itensRemovidos = await response.json();
+                console.log("Itens removidos carregados:", itensRemovidos);
+
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    if (itensRemovidos.includes(checkbox.value)) {
+                        checkbox.parentElement.remove();
+                    }
+                });
+            } catch (error) {
+                console.error("Erro ao carregar itens removidos:", error);
+            }
+        }
+
+        async function confirmarItens() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            for (let checkbox of checkboxes) {
+                let item = checkbox.value;
+                try {
+                    await fetch(scriptURL, {
+                        method: "POST",
+                        body: JSON.stringify({ item }),
+                        headers: { "Content-Type": "application/json" }
+                    });
+                    console.log("Item enviado:", item);
+                } catch (error) {
+                    console.error("Erro ao salvar item:", error);
+                }
+                checkbox.parentElement.remove();
+            }
+        }
+
+        window.onload = carregarItensRemovidos;
+    </script>
+
+</body>
+</html>
